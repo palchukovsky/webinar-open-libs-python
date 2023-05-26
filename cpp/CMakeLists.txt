@@ -34,11 +34,11 @@ target_link_libraries(fibonacci_test
     fibonacci
     GTest::gtest_main)
 
-enable_testing()
-
 include(GoogleTest)
 
 gtest_discover_tests(fibonacci_test)
+
+add_test(fibonacci fibonacci_test)
 
 
 ###############################################################################

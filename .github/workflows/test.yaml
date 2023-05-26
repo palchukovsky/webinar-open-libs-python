@@ -1,0 +1,36 @@
+name: 'Test'
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9"]
+    steps:
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v3
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+            sudo apt-get update
+            sudo apt-get install cmake pybind11-dev libgtest-dev -y
+            python -m pip install --upgrade pip --root-user-action=ignore
+            pip install pytest --root-user-action=ignore
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+      - name: Build
+        run: |
+          cmake -B ./build
+          cmake --build ./build
+      - name: Test C++ part
+        run: cmake --build ./build --target test
+      - name: Test Python part
+        run: pytest ./python
