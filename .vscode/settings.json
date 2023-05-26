@@ -1,0 +1,15 @@
+{
+  "cSpell.words": [
+    "pyfibonacci"
+  ],
+  "C_Cpp.codeAnalysis.clangTidy.checks.disabled": [
+    "cppcoreguidelines-avoid-non-const-global-variables",
+    "cppcoreguidelines-avoid-c-arrays",
+    "cppcoreguidelines-pro-bounds-pointer-arithmetic",
+    "cppcoreguidelines-pro-type-vararg",
+    "misc-const-correctness",
+    "misc-no-recursion",
+    "misc-use-anonymous-namespace",
+    "cppcoreguidelines-owning-memory"
+  ]
+}

@@ -1,0 +1,20 @@
+[tool.pytest.ini_options]
+
+minversion = "7.2"
+console_output_style = "count"
+
+addopts = """ \
+--verbosity=4 \
+--verbose \
+--new-first \
+--failed-first \
+--showlocals \
+--color=auto \
+--code-highlight=yes \
+--strict-markers \
+--ignore=site-packages \
+"""
+
+filterwarnings = [
+    'ignore::DeprecationWarning:pyparsing.*:',
+]
